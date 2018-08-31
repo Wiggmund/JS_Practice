@@ -29,23 +29,54 @@
             width: 100px;
             background-color: darkorchid;
         }
+        #ball
+        {
+            height: 100px;
+            width: 100px;
+            border-radius: 50%;
+            background-color: lime;
+        }
+        #slider
+        {
+            height: 50px;
+            margin: 100px auto;
+            width: 600px;
+            border-radius: 3%;
+            background-color: lightblue;
+
+        }
+        #switcher
+        {
+            height: 50px;
+            width: 20px;
+            border-radius: 3%;
+            background-color: darkblue;
+            position: relative;
+        }
 
     </style>
 </head>
 <body>
+
     <!-- <div class = "div div1 div2" id = 'divX' style = "width: 200px; height: 200px; background-color: darkred;"></div>
 
     <p data-p-exited = " yes"></p> -->
     
     
-    <div class = "figure">
+    <!-- <div class = "figure">
         <div class = "figure lvl2">
             <div class = "figure lvl3"></div>
         </div>
-    </div>    
+    </div>     -->
+
+    <div id = "ball"></div>
+    <div id = "slider">
+        <div id = "switcher"></div>
+    </div>
     
     
     <script src="basic.js"></script>
     <script src="events.js"></script>
+    <script src="drag_N_drop.js"></script>
 </body>
 </html>
