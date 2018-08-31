@@ -73,3 +73,43 @@ function createMatrix(string = "0 0 0;1 1 1") {
 }
 var matrix = createMatrix(" 1 1 1 ; 2 2 2 ; 3 3 3 ; 4 4 4 ");
 console.log(matrix);
+
+
+function deleteSpaces(string) {
+    let isStartOfString = true, // Switcher or flag for logic expression
+        counterOfSpaces = 0;
+
+    string = string.replace(/ /g, (str, offset, input) => {
+        //  if in start of string there are not 
+        if (isStartOfString === true && offset !== 0 && counterOfSpaces === 0) {
+            isStartOfString = false;
+        }
+        
+        //  If the next character is not a space:
+        // we have to find out if it is end or start of string, then we delete all spaces
+        // or somewhere in string between characters, then we leave one space
+        if (input[offset + 1] !== ' ') {
+            //  If it's the start of string
+            if (isStartOfString === true) {
+                isStartOfString = false;
+                counterOfSpaces++;
+                return '';
+            }
+
+            //  If it's the end of string
+            if (input[offset + 1] === undefined) {
+                counterOfSpaces++;
+                return '';
+            }
+
+            //  If it's exactly not start or end of string(between characters)
+            return ' ';
+        }
+
+        counterOfSpaces++;
+        //  If next character is space we just delete it
+        return '';
+    });
+
+    return string;
+}
